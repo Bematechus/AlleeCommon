@@ -8,29 +8,31 @@
 
 import Foundation
 
-@objc open class AlleeOrder: NSObject, BaseMappable {
+@objc open class AlleeOrder: NSObject, Mappable {
     
-    var id: String?
-    var posTerminal: Int?
-    var guestTable: String?
-    var serverName: String?
-    var destination: String?
-    var userInfo: String?
-    var orderMessages: [String]?
+    @objc open var id: String?
+    @objc open var posTerminal: NSNumber?
+    @objc open var guestTable: String?
+    @objc open var serverName: String?
+    @objc open var destination: String?
+    @objc open var userInfo: String?
+    @objc open var orderMessages: [String]?
     
-    var transType: AlleeTransType = .insert
+    @objc open var transType: AlleeTransType = .insert
+    
     var orderType: OrderType = .regular
     
-    var items: [AlleeItem]?
+    @objc open var items: [AlleeItem]?
     
     
-    override init() {
-        
+    public override init() {
     }
+    
   
     required public init?(map: Map){
         
     }
+    
     
     public func mapping(map: Map) {
         self.id <- map["id"]
@@ -46,6 +48,26 @@ import Foundation
         
         self.items <- map["items"]
     }
+    
+    
+    @objc open func set(orderType: AlleeOrderType) {
+        switch orderType {
+        case .regular:
+            self.orderType = .regular
+            
+        case .rush:
+            self.orderType = .rush
+            
+        case .fire:
+            self.orderType = .fire
+        }
+    }
+    
+    
+    @objc public enum AlleeOrderType: Int {
+        case regular, rush, fire
+    }
+    
     
     enum OrderType: String {
         case regular = "REGULAR"

@@ -8,20 +8,23 @@
 
 import Foundation
 
-@objc open class AlleeCondiment: NSObject, BaseMappable {
+@objc open class AlleeCondiment: NSObject, Mappable {
     
-    var id: String?
-    var name: String?
-    var preModifier: [String]?
+    @objc open var id: String?
+    @objc open var name: String?
+    @objc open var preModifier: [String]?
     
-    var transType: AlleeTransType = .insert
+    @objc open var transType: AlleeTransType = .insert
+    
     
     public override init() {
     }
     
+    
     public required init?(map: Map){
         
     }
+    
     
     public func mapping(map: Map) {
         self.id <- map["id"]

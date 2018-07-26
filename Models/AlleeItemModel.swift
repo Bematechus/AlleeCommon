@@ -8,29 +8,30 @@
 
 import Foundation
 
-@objc open class AlleeItem: NSObject, BaseMappable {
+@objc open class AlleeItem: NSObject, Mappable {
     
-    var id: String?
-    var name: String?
-    var buildCard: String?
-    var trainingVideo: String?
-    var preModifier: [String]?
-    var preparationTime: Double?
-    var quantity: Int = 1
-    var kDSStation: String?
+    @objc open var id: String?
+    @objc open var name: String?
+    @objc open var buildCard: String?
+    @objc open var trainingVideo: String?
+    @objc open var preModifier: [String]?
+    @objc open var preparationTime: NSNumber?
+    @objc open var quantity: Int = 1
+    @objc open var kDSStation: String?
     
-    var transType: AlleeTransType = .insert
+    @objc open var transType: AlleeTransType = .insert
     
-    var condiments: [AlleeCondiment]?
+    @objc open var condiments: [AlleeCondiment]?
     
     
-    override init() {
-        
+    public override init() {
     }
+    
     
     public required init?(map: Map){
         
     }
+    
     
     public func mapping(map: Map) {
         self.id <- map["id"]

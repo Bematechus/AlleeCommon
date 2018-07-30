@@ -16,6 +16,7 @@ import Foundation
     @objc open var serverName: String?
     @objc open var destination: String?
     @objc open var userInfo: String?
+    @objc open var phone: String?
     @objc open var orderMessages: [String]?
     
     @objc open var transType: AlleeTransType = .insert
@@ -42,6 +43,7 @@ import Foundation
         self.destination <- map["destination"]
         self.userInfo <- map["userInfo"]
         self.orderMessages <- map["orderMessages"]
+        self.phone <- map["phone"]
         
         self.transType <- map["transType"]
         self.orderType <- map["orderType"]

@@ -24,6 +24,7 @@ import Foundation
     var orderType: OrderType = .regular
     
     @objc open var items: [AlleeItem]?
+    @objc open var customer: AlleeCustomer?
     
     
     public override init() {
@@ -49,6 +50,7 @@ import Foundation
         self.orderType <- map["orderType"]
         
         self.items <- map["items"]
+        self.customer <- map["customer"]
     }
     
     

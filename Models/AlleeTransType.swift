@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objc public enum AlleeTransType: Int {
+@objc public enum AlleeTransType: Int, Codable {
     case insert = 1
     case delete = 2
     case update = 3

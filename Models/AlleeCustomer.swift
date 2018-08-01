@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objc open class AlleeCustomer: NSObject, Mappable {
+@objc open class AlleeCustomer: NSObject, Codable {
     
     @objc open var id: String?
     @objc open var name: String?
@@ -31,23 +31,12 @@ import Foundation
     }
     
     
-    public required init?(map: Map){
-        
+    func toJson() -> String? {
+        return JsonUtil<AlleeCustomer>.toJson(self)
     }
     
     
-    public func mapping(map: Map) {
-        self.id <- map["id"]
-        self.name <- map["name"]
-        self.phone <- map["phone"]
-        self.phone2 <- map["phone2"]
-        self.address <- map["address"]
-        self.address2 <- map["address2"]
-        self.city <- map["city"]
-        self.state <- map["state"]
-        self.zip <- map["zip"]
-        self.country <- map["country"]
-        self.email <- map["email"]
-        self.webmail <- map["webmail"]
+    static func from(json: String) -> AlleeCustomer? {
+        return JsonUtil<AlleeCustomer>.from(json: json)
     }
 }

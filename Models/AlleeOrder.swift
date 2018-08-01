@@ -8,10 +8,10 @@
 
 import Foundation
 
-@objc open class AlleeOrder: NSObject, Mappable {
+@objc open class AlleeOrder: NSObject, Codable {
     
     @objc open var id: String?
-    @objc open var posTerminal: NSNumber?
+    @objc open var posTerminal: Int = 0
     @objc open var guestTable: String?
     @objc open var serverName: String?
     @objc open var destination: String?
@@ -28,29 +28,6 @@ import Foundation
     
     
     public override init() {
-    }
-    
-  
-    required public init?(map: Map){
-        
-    }
-    
-    
-    public func mapping(map: Map) {
-        self.id <- map["id"]
-        self.posTerminal <- map["posTerminal"]
-        self.guestTable <- map["guestTable"]
-        self.serverName <- map["serverName"]
-        self.destination <- map["destination"]
-        self.userInfo <- map["userInfo"]
-        self.orderMessages <- map["orderMessages"]
-        self.phone <- map["phone"]
-        
-        self.transType <- map["transType"]
-        self.orderType <- map["orderType"]
-        
-        self.items <- map["items"]
-        self.customer <- map["customer"]
     }
     
     
@@ -73,7 +50,17 @@ import Foundation
     }
     
     
-    enum OrderType: String {
+    func toJson() -> String? {
+        return JsonUtil<AlleeOrder>.toJson(self)
+    }
+    
+    
+    static func from(json: String) -> AlleeOrder? {
+        return JsonUtil<AlleeOrder>.from(json: json)
+    }
+    
+    
+    enum OrderType: String, Codable {
         case regular = "REGULAR"
         case rush = "RUSH"
         case fire = "FIRE"

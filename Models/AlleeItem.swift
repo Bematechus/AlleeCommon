@@ -8,14 +8,14 @@
 
 import Foundation
 
-@objc open class AlleeItem: NSObject, Mappable {
+@objc open class AlleeItem: NSObject, Codable {
     
     @objc open var id: String?
     @objc open var name: String?
     @objc open var buildCard: String?
     @objc open var trainingVideo: String?
     @objc open var preModifier: [String]?
-    @objc open var preparationTime: NSNumber?
+    @objc open var preparationTime: Double = 0
     @objc open var quantity: Int = 1
     @objc open var kDSStation: String?
     
@@ -25,26 +25,5 @@ import Foundation
     
     
     public override init() {
-    }
-    
-    
-    public required init?(map: Map){
-        
-    }
-    
-    
-    public func mapping(map: Map) {
-        self.id <- map["id"]
-        self.name <- map["name"]
-        self.buildCard <- map["buildCard"]
-        self.trainingVideo <- map["trainingVideo"]
-        self.preModifier <- map["preModifier"]
-        self.preparationTime <- map["preparationTime"]
-        self.quantity <- map["quantity"]
-        self.kDSStation <- map["kDSStation"]
-        
-        self.transType <- map["transType"]
-        
-        self.condiments <- map["condiments"]
     }
 }

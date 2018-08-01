@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objc open class AlleeCondiment: NSObject, Mappable {
+@objc open class AlleeCondiment: NSObject, Codable {
     
     @objc open var id: String?
     @objc open var name: String?
@@ -18,17 +18,5 @@ import Foundation
     
     
     public override init() {
-    }
-    
-    
-    public required init?(map: Map){
-        
-    }
-    
-    
-    public func mapping(map: Map) {
-        self.id <- map["id"]
-        self.name <- map["name"]
-        self.preModifier <- map["preModifier"]
     }
 }

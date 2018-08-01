@@ -18,13 +18,18 @@ class SocketSendOrder: BaseSocketMessage {
         self.order = order
     }
     
-    required init?(map: Map){
-        super.init(map: map)
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
     }
     
-    override func mapping(map: Map) {
-        super.mapping(map: map)
-        self.order <- map["order"]
+    
+    override func toJson() -> String? {
+        return JsonUtil<SocketSendOrder>.toJson(self)
+    }
+    
+    
+    static func from(json: String) -> SocketSendOrder? {
+        return JsonUtil<SocketSendOrder>.from(json: json)
     }
 }
 

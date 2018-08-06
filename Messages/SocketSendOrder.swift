@@ -18,8 +18,22 @@ class SocketSendOrder: BaseSocketMessage {
         self.order = order
     }
     
+    
+    private enum CodingKeys: String, CodingKey {
+        case order
+    }
+    
+    
     required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.order = try container.decode(AlleeOrder.self, forKey: .order)
         try super.init(from: decoder)
+    }
+    
+    override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(order, forKey: .order)
+        try super.encode(to: encoder)
     }
     
     

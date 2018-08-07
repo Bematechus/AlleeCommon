@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import BSocketHelper
 
 @objc open class AlleeOrder: NSObject, Codable {
     

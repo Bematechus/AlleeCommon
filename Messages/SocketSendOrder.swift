@@ -14,8 +14,8 @@ class SocketSendOrder: BaseSocketMessage {
     var order: AlleeOrder?
     
     
-    init(guid: String, order: AlleeOrder, deviceSerial: String) {
-        super.init(guid: guid, type: TypeSocketMessage.sendOrder, originDeviceSerial: deviceSerial)
+    init(guid: String, storeKey: String, order: AlleeOrder, deviceSerial: String) {
+        super.init(guid: guid, storeKey: storeKey, type: TypeSocketMessage.sendOrder, originDeviceSerial: deviceSerial)
         self.order = order
     }
     

@@ -29,8 +29,8 @@ class SocketSendOrder: BaseSocketMessage {
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.order = try container.decode(AlleeOrder.self, forKey: .order)
-        self.orderXML = try container.decode(String.self, forKey: .orderXML)
+        self.order = try container.decode(AlleeOrder?.self, forKey: .order)
+        self.orderXML = try container.decode(String?.self, forKey: .orderXML)
         try super.init(from: decoder)
     }
     

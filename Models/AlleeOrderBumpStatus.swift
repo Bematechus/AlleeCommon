@@ -10,7 +10,7 @@ import Foundation
 
 @objc open class AlleeOrderBumpStatus: NSObject, Codable {
     
-    var guid: String?
-    var id: String?
-    var status: AlleeBumpStatus?
+    public var guid: String?
+    public var id: String?
+    public var status: AlleeBumpStatus?
 }

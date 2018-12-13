@@ -14,7 +14,7 @@ class SocketOrdersBumpRequest: BaseSocketMessage {
     var lastUpdateTime: Double?
     
     
-    init(guid: String, storeKey: String, deviceSerial: String, lastUpdateTime: Double?) {
+    init(guid: String, storeKey: String, lastUpdateTime: Double?, deviceSerial: String) {
         super.init(guid: guid, storeKey: storeKey, type: TypeSocketMessage.ordersBumpRequest, originDeviceSerial: deviceSerial)
         self.lastUpdateTime = lastUpdateTime
     }

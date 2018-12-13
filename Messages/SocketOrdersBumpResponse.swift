@@ -17,6 +17,7 @@ class SocketOrdersBumpResponse: BaseSocketMessage {
     
     init(guid: String, storeKey: String, ordersBumpStatus: [AlleeOrderBumpStatus]?, lastUpdateTime: Double?, deviceSerial: String) {
         super.init(guid: guid, storeKey: storeKey, type: TypeSocketMessage.ordersBumpResponse, originDeviceSerial: deviceSerial)
+
         self.lastUpdateTime = lastUpdateTime
         self.ordersBumpStatus = ordersBumpStatus
     }

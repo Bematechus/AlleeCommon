@@ -13,7 +13,7 @@ import Foundation
     @objc open var id: String?
     @objc open var name: String?
     @objc open var preModifier: [String]?
-    @objc open var preparationTime: Double = 0
+    @objc open var preparationTime: Double? = 0
     
     @objc open var transType: AlleeTransType = .insert
     

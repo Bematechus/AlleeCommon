@@ -19,14 +19,37 @@ import Foundation
     @objc open var quantity: Int = 1
     @objc open var kDSStation: String?
     
-    @objc open var transType: AlleeTransType = .insert
-    
     @objc open var condiments: [AlleeCondiment]?
     
     @objc open var summary: AlleeSummary?
-    
     @objc open var itemRecipe: AlleeItemRecipe?
     
+    var itemType: ItemType = .regular
+    
+    @objc open var transType: AlleeTransType = .insert
+    
     public override init() {
+    }
+    
+    
+    @objc open func set(itemType: AlleeItemType) {
+        switch itemType {
+        case .regular:
+            self.itemType = .regular
+            
+        case .fire:
+            self.itemType = .fire
+        }
+    }
+    
+    
+    @objc public enum AlleeItemType: Int {
+        case regular, fire
+    }
+    
+    
+    enum ItemType: String, Codable {
+        case regular = "REGULAR"
+        case fire = "FIRE"
     }
 }

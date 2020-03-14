@@ -46,12 +46,15 @@ import BSocketHelper
             
         case .fire:
             self.orderType = .fire
+            
+        case .online:
+            self.orderType = .online
         }
     }
     
     
     @objc public enum AlleeOrderType: Int {
-        case regular, rush, fire
+        case regular, rush, fire, online
     }
     
     
@@ -69,5 +72,6 @@ import BSocketHelper
         case regular = "REGULAR"
         case rush = "RUSH"
         case fire = "FIRE"
+        case online = "ONLINE"
     }
 }

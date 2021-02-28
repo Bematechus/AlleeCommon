@@ -51,6 +51,9 @@ import Foundation
         case .fire:
             self.itemType = .fire
             
+        case .rush:
+            self.itemType = .rush
+            
         case .online:
             self.itemType = .online
         }
@@ -58,13 +61,14 @@ import Foundation
     
     
     @objc public enum AlleeItemType: Int {
-        case regular, fire, online
+        case regular, fire, rush, online
     }
     
     
     enum ItemType: String, Codable {
         case regular = "REGULAR"
         case fire = "FIRE"
+        case rush = "RUSH"
         case online = "ONLINE"
     }
 }
